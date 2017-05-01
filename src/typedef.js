@@ -68,10 +68,10 @@ type WordMap = Map<WordKey, Word>;
  * @property {WordMap} down
  * @property {WordMap} across
  */
-type PuzzleWords = {
+type PuzzleWords = {|
 	down: WordMap,
 	across: WordMap,
-};
+|};
 
 /**
  * An object containing all data about a single puzzle
@@ -117,3 +117,9 @@ type Cursor = {|
 	focus: Pos,
 	direction: 'DOWN' | 'ACROSS';
 |};
+
+/**
+ * [PuzzleSource description]
+ * @type {[type]}
+ */
+type PuzzleSource = Date => Array<Puzzle>;

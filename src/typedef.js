@@ -77,24 +77,50 @@ type PuzzleWords = {|
  * An object containing all data about a single puzzle
  * @typedef {Object} Puzzle
  * @property {String} title - User friendly title of puzzle
- * @property {String} publisher - Group responsable for publishing puzzle
  * @property {String} author - Original creator of puzzle
+ * @property {String} publisher - Group responsable for publishing puzzle
  * @property {Date} published - A date object representing the day of publish
- * @property {Array} size - A tuple descibing width x height of the puzzle
+ * @property {Array} size - A tuple descibing width, height of the puzzle
  * @property {Walls} walls
  * @property {WordKeyMap} keys
  * @property {PuzzleWords} words
  */
 type Puzzle = {|
 	title: string,
-	publisher: string,
 	author: string,
+	publisher: string,
 	published: date,
 	size: [number, number],
 	walls: Walls,
   keys: WordKeyMap,
 	words: PuzzleWords,
 |};
+
+const monthPuzzle = (month, startIdx, length) => {
+	const wallsAndKeys = (i = 0, walls = [], keys = {}) => {
+		const x = i % 7;
+		const y = Math.floor(i / 7);
+		const posKey = `${x},${y}`;
+
+		if (x === 0 && y * 7 >= startIdx + length) { return { walls, keys }; }
+
+		return (i - startIdx < 0 || length <= i - startIdx)
+			? wallsAndKeys(i + 1, [...walls, posKey], keys)
+			: wallsAndKeys(i + 1, walls, Object.assign({}, keys, { [posKey]: i - startIdx + 1 }));
+	};
+
+	const { walls, keys } = wallsAndKeys();
+
+	return {
+		title: month,
+		author: 'Tyler Torola',
+		publisher: 'TJT.Codes',
+		published: new Date(),
+		size: [7, Math.ceil((startIdx + length) / 7)],
+		walls,
+		keys,
+	};
+}
 
 /**
  * An object containing changable properties of a cell

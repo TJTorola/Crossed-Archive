@@ -6,7 +6,7 @@ type Props = {
   hinted: boolean,
   error: boolean,
   color: 'foreground' | 'highlight' | 'focus',
-  hintNum: number,
+  hintNum: number | null,
   guess: Guess,
 }
 

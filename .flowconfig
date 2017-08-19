@@ -6,3 +6,4 @@
 
 [options]
 module.name_mapper='^~\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1.js'
+all=true

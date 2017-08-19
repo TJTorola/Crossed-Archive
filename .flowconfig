@@ -1,4 +1,6 @@
 [ignore]
+.*node_modules/.*
+.*build/.*
 
 [include]
 
@@ -7,3 +9,6 @@
 [options]
 module.name_mapper='^~\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1.js'
 all=true
+
+[version]
+0.53.1

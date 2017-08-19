@@ -2,6 +2,7 @@
  * A single char of a word
  * @typedef {String} Letter
  */
+// prettier-ignore
 type Letter = 'A' | 'B' | 'C'
 | 'D' | 'E' | 'F' | 'G' | 'H'
 | 'I' | 'J' | 'K' | 'L' | 'M'
@@ -13,54 +14,54 @@ type Letter = 'A' | 'B' | 'C'
  * A single char of a guess, allowing ' ' for blank
  * @typedef {String} Guess
  */
-type Guess = Letter | ' ';
+type Guess = Letter | " "
 
 /**
  * A tuple representing a location on the grid
  * @type {Array}
  */
-type Pos = [number, number];
+type Pos = [number, number]
 
 /**
  * A string representation of a pos for keying in a pos
  * PosKey === Pos.join(',')
  * @typedef {String} PosKey
  */
-type PosKey = string;
+type PosKey = string
 
 /**
  * A set containing all the wall locations for a puzzle
  * @typedef {Set} Walls
  */
-type Walls = Set<PosKey>;
+type Walls = Set<PosKey>
 
 /**
  * A number corresponding to a Word
  * @typedef {Number} HintKey
  */
-type WordKey = number;
+type WordKey = number
 
 /**
  * A map of locKeys to hintKeys
  * @typedef {Map} WordKeys
  */
-type WordKeyMap = Map<PosKey, WordKey>;
+type WordKeyMap = Map<PosKey, WordKey>
 
 /**
  * A hint and answer combination with the key included
  * @typedef {Object} Word
  */
 type Word = {|
-	key: WordKey,
-	hint: string,
-	answer: Array<Letter>,
-|};
+  key: WordKey,
+  hint: string,
+  answer: Array<Letter>,
+|}
 
 /**
  * A set of words searchable by key
  * @typedef {Map} WordMap
  */
-type WordMap = Map<WordKey, Word>;
+type WordMap = Map<WordKey, Word>
 
 /**
  * All words in a puzzle, associated by their direction
@@ -69,9 +70,9 @@ type WordMap = Map<WordKey, Word>;
  * @property {WordMap} across
  */
 type PuzzleWords = {|
-	down: WordMap,
-	across: WordMap,
-|};
+  down: WordMap,
+  across: WordMap,
+|}
 
 /**
  * An object containing all data about a single puzzle
@@ -86,15 +87,15 @@ type PuzzleWords = {|
  * @property {PuzzleWords} words
  */
 type Puzzle = {|
-	title: string,
-	author: string,
-	publisher: string,
-	published: date,
-	size: [number, number],
-	walls: Walls,
+  title: string,
+  author: string,
+  publisher: string,
+  published: date,
+  size: [number, number],
+  walls: Walls,
   keys: WordKeyMap,
-	words: PuzzleWords,
-|};
+  words: PuzzleWords,
+|}
 
 /**
  * An object containing changable properties of a cell
@@ -103,9 +104,9 @@ type Puzzle = {|
  * @property {Number} guessCount - The amount of guesses made on this cell
  */
 type CellState = {|
-	guess: Guess,
-	guessCount: number,
-|};
+  guess: Guess,
+  guessCount: number,
+|}
 
 /**
  * An object representing selected location on a puzzle
@@ -114,12 +115,12 @@ type CellState = {|
  * @property {string} direction
  */
 type Cursor = {|
-	focus: Pos,
-	direction: 'DOWN' | 'ACROSS';
-|};
+  focus: Pos,
+  direction: "DOWN" | "ACROSS",
+|}
 
 /**
  * [PuzzleSource description]
  * @type {[type]}
  */
-type PuzzleSource = Date => Array<Puzzle>;
+type PuzzleSource = Date => Array<Puzzle>

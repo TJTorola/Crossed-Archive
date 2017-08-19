@@ -1,7 +1,5 @@
-import { applyMiddleware } from 'redux';
+import { applyMiddleware } from "redux"
 
-const stub = store => next => action => next(action);
+const stub = store => next => action => next(action)
 
-export default applyMiddleware(
-  stub,
-);
+export default applyMiddleware(stub)

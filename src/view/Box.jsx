@@ -1,30 +1,36 @@
-import React from 'react';
-import type { Guess } from '~/typedef';
+import React from "react"
+import type { Guess } from "~/typedef"
 
 type Props = {
   pos: [number, number],
   hinted: boolean,
   error: boolean,
-  color: 'foreground' | 'highlight' | 'focus',
+  color: "foreground" | "highlight" | "focus",
   hintNum: number | null,
   guess: Guess,
 }
 
 export default ({ pos, hinted, error, color, hintNum, guess }: Props) => {
-  const [x, y] = pos.map(x => x * 32);
+  const [x, y] = pos.map(x => x * 32)
 
   const fill = {
-    focus      : '#6D98BA',
-    highlight  : '#A7C6DF',
-    foreground : '#FDFFFC',
-  }[color];
+    focus: "#6D98BA",
+    highlight: "#A7C6DF",
+    foreground: "#FDFFFC",
+  }[color]
 
-  const href = `#box${ hinted ? '-hinted' : '' }${ error ? '-error' : '' }`;
+  const href = `#box${hinted ? "-hinted" : ""}${error ? "-error" : ""}`
 
-  const letter = <text x={x + 16} y={y + 22} fontSize="16" textAnchor="middle">{guess}</text>;
+  const letter = (
+    <text x={x + 16} y={y + 22} fontSize="16" textAnchor="middle">
+      {guess}
+    </text>
+  )
   const hint = hintNum
-    ? <text x={x + 3} y={y + 10} fontSize="9">{hintNum}</text>
-    : null;
+    ? <text x={x + 3} y={y + 10} fontSize="9">
+        {hintNum}
+      </text>
+    : null
 
   return (
     <g>
@@ -32,5 +38,5 @@ export default ({ pos, hinted, error, color, hintNum, guess }: Props) => {
       {hint}
       {letter}
     </g>
-  );
+  )
 }

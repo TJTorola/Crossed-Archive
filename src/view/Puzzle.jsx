@@ -1,23 +1,24 @@
 // @flow
-import React from 'react';
-import { range } from 'lodash';
+import React from "react"
+import { range } from "lodash"
 
-import type { Puzzle } from '~/typedef';
-import Box from './Box';
+import type { Puzzle } from "~/typedef"
+import Box from "./Box"
 
 type Props = {
   puzzle: Puzzle,
-};
+}
 
 export default ({ puzzle }: Props) => {
-  const cells = range(puzzle.size[1]).reduce((acc, y) => (
-    [...range(puzzle.size[0]).map((x) => [x, y]), ...acc]
-  ), []);
+  const cells = range(puzzle.size[1]).reduce(
+    (acc, y) => [...range(puzzle.size[0]).map(x => [x, y]), ...acc],
+    []
+  )
 
   const boxes = cells.map(pos => {
-    const key = pos.join(',');
-    const wall = puzzle.walls.includes(key);
-    const hintNum = puzzle.keys[key] || null;
+    const key = pos.join(",")
+    const wall = puzzle.walls.includes(key)
+    const hintNum = puzzle.keys[key] || null
 
     return wall
       ? null
@@ -29,10 +30,10 @@ export default ({ puzzle }: Props) => {
           color="foreground"
           hintNum={hintNum}
           guess=" "
-        />;
-    });
+        />
+  })
 
-  const [w, h] = puzzle.size.map(x => x * 32);
+  const [w, h] = puzzle.size.map(x => x * 32)
 
   return (
     <svg viewBox={`0 0 ${w} ${h}`} width={w} className="puzzle">
@@ -58,5 +59,5 @@ export default ({ puzzle }: Props) => {
 
       {boxes}
     </svg>
-  );
+  )
 }

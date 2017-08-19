@@ -1,4 +1,3 @@
-// @flow
 import React from "react"
 import PuzzleComp from "~/view/Puzzle"
 import type { Puzzle } from "~/typedef"

@@ -1,4 +1,3 @@
-// @flow
 import { range } from "lodash"
 import React from "react"
 import Box from "~/view/Box"

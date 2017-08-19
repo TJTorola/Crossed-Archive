@@ -35,5 +35,8 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.14.1",
     "webpack": "^2.2.1"
+  },
+  "engines": {
+    "npm": "5.3.x"
   }
 }

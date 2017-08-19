@@ -1,6 +1,9 @@
+import { merge } from "ramda"
 import React from "react"
 import PuzzleComp from "~/view/Puzzle"
 import type { Puzzle } from "~/typedef"
+
+const { floor, ceil } = Math
 
 const monthPuzzle = (
   month: sting,
@@ -9,7 +12,7 @@ const monthPuzzle = (
 ): Puzzle => {
   const wallsAndKeys = (i = 0, walls = [], keys = {}) => {
     const x = i % 7
-    const y = Math.floor(i / 7)
+    const y = floor(i / 7)
     const posKey = `${x},${y}`
 
     if (x === 0 && y * 7 >= startIdx + length) {
@@ -18,11 +21,7 @@ const monthPuzzle = (
 
     return i - startIdx < 0 || length <= i - startIdx
       ? wallsAndKeys(i + 1, [...walls, posKey], keys)
-      : wallsAndKeys(
-          i + 1,
-          walls,
-          Object.assign({}, keys, { [posKey]: i - startIdx + 1 })
-        )
+      : wallsAndKeys(i + 1, walls, merge(keys, { [posKey]: i - startIdx + 1 }))
   }
 
   const { walls, keys } = wallsAndKeys()
@@ -32,7 +31,7 @@ const monthPuzzle = (
     author: "Tyler Torola",
     publisher: "TJT.Codes",
     published: new Date(),
-    size: [7, Math.ceil((startIdx + length) / 7)],
+    size: [7, ceil((startIdx + length) / 7)],
     walls,
     keys,
   }

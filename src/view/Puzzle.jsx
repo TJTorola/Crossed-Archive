@@ -1,9 +1,8 @@
 // @flow
-import React from "react"
 import { range } from "lodash"
-
+import React from "react"
+import Box from "~/view/Box"
 import type { Puzzle } from "~/typedef"
-import Box from "./Box"
 
 type Props = {
   puzzle: Puzzle,

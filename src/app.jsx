@@ -1,11 +1,9 @@
 import React from "react"
-import { createStore } from "redux"
 import { Provider } from "react-redux"
-
-import Root from "./view/root"
-
-import Reducers from "./reducers/index"
-import Middleware from "./middleware/index"
+import { createStore } from "redux"
+import Middleware from "~/middleware/index"
+import Reducers from "~/reducers/index"
+import Root from "~/view/root"
 
 const store = createStore(Reducers, {}, Middleware)
 global.s = store

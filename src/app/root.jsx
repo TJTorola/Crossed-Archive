@@ -10,5 +10,5 @@ global.s = store
 
 export default () =>
   <Provider store={store}>
-    <Root />
+    <div />
   </Provider>

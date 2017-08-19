@@ -1,7 +1,6 @@
 import { merge } from "ramda"
 import React from "react"
 import PuzzleComp from "~/view/Puzzle"
-import type { Puzzle } from "~/typedef"
 
 const { floor, ceil } = Math
 

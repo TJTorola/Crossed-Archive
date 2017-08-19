@@ -1,5 +1,4 @@
 import React from "react"
-import type { Guess } from "~/typedef"
 
 type Props = {
   pos: [number, number],

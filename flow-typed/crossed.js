@@ -3,7 +3,7 @@
  * @typedef {String} Letter
  */
 // prettier-ignore
-type Letter = 'A' | 'B' | 'C'
+declare type Letter = 'A' | 'B' | 'C'
 | 'D' | 'E' | 'F' | 'G' | 'H'
 | 'I' | 'J' | 'K' | 'L' | 'M'
 | 'N' | 'O' | 'P' | 'Q' | 'R'
@@ -14,44 +14,44 @@ type Letter = 'A' | 'B' | 'C'
  * A single char of a guess, allowing ' ' for blank
  * @typedef {String} Guess
  */
-type Guess = Letter | " "
+declare type Guess = Letter | " "
 
 /**
  * A tuple representing a location on the grid
  * @type {Array}
  */
-type Pos = [number, number]
+declare type Pos = [number, number]
 
 /**
  * A string representation of a pos for keying in a pos
  * PosKey === Pos.join(',')
  * @typedef {String} PosKey
  */
-type PosKey = string
+declare type PosKey = string
 
 /**
  * A set containing all the wall locations for a puzzle
  * @typedef {Set} Walls
  */
-type Walls = Set<PosKey>
+declare type Walls = Set<PosKey>
 
 /**
  * A number corresponding to a Word
  * @typedef {Number} HintKey
  */
-type WordKey = number
+declare type WordKey = number
 
 /**
  * A map of locKeys to hintKeys
  * @typedef {Map} WordKeys
  */
-type WordKeyMap = Map<PosKey, WordKey>
+declare type WordKeyMap = Map<PosKey, WordKey>
 
 /**
  * A hint and answer combination with the key included
  * @typedef {Object} Word
  */
-type Word = {|
+declare type Word = {|
   key: WordKey,
   hint: string,
   answer: Array<Letter>,
@@ -61,7 +61,7 @@ type Word = {|
  * A set of words searchable by key
  * @typedef {Map} WordMap
  */
-type WordMap = Map<WordKey, Word>
+declare type WordMap = Map<WordKey, Word>
 
 /**
  * All words in a puzzle, associated by their direction
@@ -69,7 +69,7 @@ type WordMap = Map<WordKey, Word>
  * @property {WordMap} down
  * @property {WordMap} across
  */
-type PuzzleWords = {|
+declare type PuzzleWords = {|
   down: WordMap,
   across: WordMap,
 |}
@@ -86,7 +86,7 @@ type PuzzleWords = {|
  * @property {WordKeyMap} keys
  * @property {PuzzleWords} words
  */
-type Puzzle = {|
+declare type Puzzle = {|
   title: string,
   author: string,
   publisher: string,
@@ -103,7 +103,7 @@ type Puzzle = {|
  * @property {Guess} guess - The guessed (and rendered) letter in the cell
  * @property {Number} guessCount - The amount of guesses made on this cell
  */
-type CellState = {|
+declare type CellState = {|
   guess: Guess,
   guessCount: number,
 |}
@@ -114,7 +114,7 @@ type CellState = {|
  * @property {Pos} focus
  * @property {string} direction
  */
-type Cursor = {|
+declare type Cursor = {|
   focus: Pos,
   direction: "DOWN" | "ACROSS",
 |}
@@ -123,4 +123,4 @@ type Cursor = {|
  * [PuzzleSource description]
  * @type {[type]}
  */
-type PuzzleSource = Date => Array<Puzzle>
+declare type PuzzleSource = (Date) => Array<Puzzle>

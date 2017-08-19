@@ -1,6 +1,6 @@
 import { range } from "lodash"
 import React from "react"
-import Box from "~/view/Box"
+import Box from "~/components/box"
 import type { Puzzle } from "~/typedef"
 
 type Props = {

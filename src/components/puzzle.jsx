@@ -1,6 +1,6 @@
 import { range } from "lodash"
 import React from "react"
-import Box from "~/components/box"
+import CBox from "~/components/box"
 
 type Props = {
   puzzle: Puzzle,
@@ -19,7 +19,7 @@ export default ({ puzzle }: Props) => {
 
     return wall
       ? null
-      : <Box
+      : <CBox
           key={key}
           pos={pos}
           hinted={false}

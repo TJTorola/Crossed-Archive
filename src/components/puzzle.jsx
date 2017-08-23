@@ -1,6 +1,6 @@
 import { range } from "lodash"
 import React from "react"
-import CBox from "~/components/box"
+import CBox from "~/components/box.jsx"
 
 type Props = {
   puzzle: Puzzle,

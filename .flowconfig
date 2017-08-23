@@ -7,7 +7,7 @@
 [libs]
 
 [options]
-module.name_mapper='^~\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1.js'
+module.name_mapper='^~\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
 all=true
 
 [version]

@@ -33,7 +33,7 @@ declare type PosKey = string
  * A set containing all the wall locations for a puzzle
  * @typedef {Set} Walls
  */
-declare type Walls = Set<PosKey>
+declare type Walls = Array<PosKey>
 
 /**
  * A number corresponding to a Word
@@ -45,7 +45,9 @@ declare type WordKey = number
  * A map of locKeys to hintKeys
  * @typedef {Map} WordKeys
  */
-declare type WordKeyMap = Map<PosKey, WordKey>
+declare type WordKeyMap = {
+  [posKey: PosKey]: WordKey,
+}
 
 /**
  * A hint and answer combination with the key included
@@ -61,7 +63,9 @@ declare type Word = {|
  * A set of words searchable by key
  * @typedef {Map} WordMap
  */
-declare type WordMap = Map<WordKey, Word>
+declare type WordMap = {
+  [wordKey: WordKey]: Word,
+}
 
 /**
  * All words in a puzzle, associated by their direction
@@ -90,7 +94,7 @@ declare type Puzzle = {|
   title: string,
   author: string,
   publisher: string,
-  published: date,
+  published: Date,
   size: [number, number],
   walls: Walls,
   keys: WordKeyMap,
